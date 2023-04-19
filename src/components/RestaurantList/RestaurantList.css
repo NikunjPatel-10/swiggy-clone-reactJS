@@ -1,0 +1,16 @@
+.resListContainer {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    /* border: 1px solid yellow; */
+}
+
+.restaurantList {
+    width: 80%;
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr 1fr 1fr;
+    /* border: 1px solid red; */
+    gap: 10px 5px;
+    /* overflow: hidden; */
+
+}

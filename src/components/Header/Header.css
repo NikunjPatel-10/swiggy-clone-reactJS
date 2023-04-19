@@ -1,0 +1,56 @@
+.header {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    box-shadow: rgba(149, 157, 165, 0.2) 0px 8px 24px;
+    /* position: sticky; */
+    /* border: 1px solid pink; */
+}
+
+.header-wrapper {
+    width: 80%;
+    display: flex;
+    /* border: 1px solid gainsboro; */
+    justify-content: space-between;
+
+
+}
+
+.image-wrapper {
+    height: 100px;
+    width: 100px;
+    overflow: hidden;
+    margin-bottom: 0px;
+    /* margin-left: 50px; */
+    cursor: pointer;
+
+}
+
+.image-wrapper img {
+    height: auto;
+    width: 100%;
+}
+
+.navbar {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding-right: 25px;
+    /* margin-right: 100px; */
+}
+
+.navbar-nav {
+    display: flex;
+    list-style: none;
+    margin-right: auto;
+}
+
+.nav-item {
+    font-size: 20px;
+    margin-left: 20px;
+    cursor: pointer;
+}
+
+.nav-item:hover {
+    color: blue;
+}

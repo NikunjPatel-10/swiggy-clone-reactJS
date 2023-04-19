@@ -1,0 +1,24 @@
+.veg {
+    color: green;
+}
+
+.nonVeg {
+    color: red;
+}
+
+.foodImgWrapper {
+    height: 90px;
+    width: 100px;
+    border-radius: 8px;
+    overflow: hidden;
+}
+
+.foodImg {
+    height: 100%;
+    width: 100%;
+}
+
+.dFlex {
+    display: flex;
+    justify-content: space-between;
+}

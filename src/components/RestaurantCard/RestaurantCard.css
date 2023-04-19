@@ -1,0 +1,61 @@
+.card {
+    width: 240px;
+    height: 275px;
+    padding: 15px;
+    /* margin: 10px; */
+    font-size: 0.75rem;
+    /* background-color: #ffffff !important; */
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    gap: 0.5rem;
+    cursor: pointer;
+}
+
+.card:hover {
+    border-color: rgb(232, 232, 232);
+    box-shadow: rgba(28, 28, 28, 0.12) 0px 0.4rem 1.8rem;
+    /* border: 1px solid #c9c9c97d; */
+    transition: all 0.3s ease-in;
+}
+
+.resName {
+    font-size: 0.9rem;
+    font-weight: 500;
+    color: rgb(44, 44, 44);
+    margin-bottom: 6px;
+}
+
+.resAdd {
+    color: #868383;
+    font-size: 0.8rem;
+    /* height: 20px; */
+    /* display: -webkit-box;
+    -webkit-line-clamp: 1;
+    -webkit-box-orient: vertical; */
+}
+
+.resInfo {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.ratings {
+    color: black;
+    padding: 3px 5px;
+    font-size: 0.7rem;
+}
+
+
+.green {
+    background-color: green;
+}
+
+.yellow {
+    background-color: #e68c47;
+}
+
+.red {
+    background-color: red;
+}
