@@ -3,10 +3,11 @@ import { Fetch_Restaurant_Details } from "./../../environment";
 import { useParams } from "react-router-dom";
 import RestaurantInfo from "../RestaurantInfo/RestaurantInfo";
 import RestaurantMenu from "../RestaurantMenu/RestaurantMenu";
+import "./RestaurantDetails.css";
 
 function RestaurantDetails() {
   const [resInfoData, setResInfoData] = useState({});
-  const [resMenu, setResMenu] = useState({});
+  const [resMenu, setResMenu] = useState([]);
 
   const { resId } = useParams();
   useEffect(() => {
@@ -20,19 +21,25 @@ function RestaurantDetails() {
     const ResDetail = await fetch(Fetch_Restaurant_Details + resId);
     const ResDetailData = await ResDetail.json();
     // console.log(ResDetailData);
-    console.log(
-      ResDetailData.data.cards[2].groupedCard.cardGroupMap.REGULAR.cards
-    );
+    // console.log(
+    //   ResDetailData.data.cards[2].groupedCard.cardGroupMap.REGULAR.cards
+    // );
     setResInfoData(ResDetailData.data.cards[0].card.card.info);
     setResMenu(
-      ResDetailData.data.cards[2].groupedCard.cardGroupMap.REGULAR.cards
+      ResDetailData.data.cards[2].groupedCard.cardGroupMap.REGULAR.cards[1].card
+        .card.itemCards
     );
     // console.log(RestaurantInfo);
+    // console.log("parent", resMenu);
   };
   return (
-    <div>
-      <RestaurantInfo restaurantInfo={resInfoData} />
-      <RestaurantMenu resMenu={resMenu} />
+    <div className="resDetails-Wrapper">
+      {/* <div className="res"> */}
+      <div className="resDetail">
+        <RestaurantInfo restaurantInfo={resInfoData} />
+        <RestaurantMenu resMenu={resMenu} />
+      </div>
+      {/* </div> */}
     </div>
   );
 }

@@ -1,46 +1,44 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import { Restaurant_img } from "./../../environment";
-import { FaRegStopCircle, FaRegCaretSquareUp } from "react-icons/fa";
+import { IconSquareRoundedFilled } from "@tabler/icons-react";
 import "./RestaurantMenu.css";
 
 function RestaurantMenu({ resMenu }) {
-  console.log(resMenu);
+  // console.log("chid", resMenu);
+
+  resMenu.map((item) => {
+    console.log(item.card.info);
+  });
+  // console.log(resInfo);
+  // console.log(resMenu[1].card.card.itemcards[0].card.info
   return (
-    <div className="restaurant-menu">
-      {Object.values(resMenu).map((item) => (
-        <div className="menu-items" key={item.card.info?.id}>
-          <div className="item-details">
-            <div className="item-extras">
-              {/* Check for veg/non veg */}
-              {item.card.info?.itemAttribute?.vegClassifier === "NONVEG" ? (
-                <FaRegCaretSquareUp className="nonveg" size="1.25rem" />
-              ) : (
-                <FaRegStopCircle className="veg" size="1.25rem" />
-              )}
-              {/* Check for Bestsellers */}
-              {item?.card?.info?.ribbon?.text === "Bestseller" && (
-                <span className="bestseller">
-                  <i className="fa fa-star"></i> Bestseller
-                </span>
-              )}
+    <>
+      {resMenu.map((item) => {
+        return (
+          <div className="foodMenu-Wrapper">
+            <div>
+              {/* show red and green icon according to the vegClassifier */}
+              <p className="">
+                {item.card.info.itemAttribute.vegClassifier === "NONVEG" ? (
+                  <IconSquareRoundedFilled size={20} className="nonVeg" />
+                ) : (
+                  <IconSquareRoundedFilled size={20} className="veg" />
+                )}
+              </p>
+              <h4>{item.card.info.name}</h4>
+              <p>₹{item.card.info.price / 100}</p>
+              <p className="food-description">{item.card.info.description}</p>
             </div>
-
-            <h4>{item.card.info?.name}</h4>
-
-            <p>₹{item.card.info?.price / 100}</p>
-            <span className="item-desc">{item.card.info?.description}</span>
+            <div className="foodItem-wrapper">
+              <figure className="foodImgWrapper">
+                <img src={Restaurant_img + item.card.info.imageId} />{" "}
+              </figure>
+              <button className="btn-add">ADD</button>
+            </div>
           </div>
-          <div className="item-img">
-            {!item.card.info?.imageId ? null : (
-              <img src={Restaurant_img + item.card.info?.imageId} />
-            )}
-            {/* <div className="cart-action">
-              <ItemQuantity item={item.card.info} key={item.card.info.id} />
-            </div> */}
-          </div>
-        </div>
-      ))}
-    </div>
+        );
+      })}
+    </>
   );
 }
 

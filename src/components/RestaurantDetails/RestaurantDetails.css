@@ -1,0 +1,12 @@
+.resDetails-wrapper {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+}
+
+.resDetail {
+    width: 50%;
+    display: flex;
+    flex-direction: column;
+    margin: auto;
+}
