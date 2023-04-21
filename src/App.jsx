@@ -2,28 +2,47 @@ import { useState } from "react";
 import reactLogo from "./assets/react.svg";
 import viteLogo from "/vite.svg";
 import "./App.css";
-import { RouterProvider, createBrowserRouter } from "react-router-dom";
+import {
+  BrowserRouter,
+  RouterProvider,
+  Routes,
+  Route,
+  createBrowserRouter,
+} from "react-router-dom";
 import Home from "./pages/Home";
 import Header from "./components/Header/Header";
 import RestaurantDetails from "./components/RestaurantDetails/RestaurantDetails";
+import CartProvider from "./context/CartProvider";
+import Cart from "./components/Cart/Cart";
 
 function App() {
-  const routes = createBrowserRouter([
-    {
-      path: "/",
-      element: <Home />,
-    },
-    {
-      path: "/restaurant/:resId",
-      element: <RestaurantDetails />,
-    },
-  ]);
+  // const routes = createBrowserRouter([
+  //   {
+  //     path: "/",
+  //     element: <Home />,
+  //   },
+  //   {
+  //     path: "/restaurant/cart",
+  //     element: <Cart />,
+  //   },
+  //   {
+  //     path: "/restaurant/:resId",
+  //     element: <RestaurantDetails />,
+  //   },
+  // ]);
 
   return (
-    <div>
-      <Header />
-      <RouterProvider router={routes} />
-    </div>
+    <CartProvider>
+      <div>
+        <Header />
+        <Routes>
+          <Route path="/" element={<Home />} />
+          <Route path="/restaurant/cart" element={<Cart />} />
+          <Route path="/restaurant/:resId" element={<RestaurantDetails />} />
+        </Routes>
+        {/* <RouterProvider router={routes} /> */}
+      </div>
+    </CartProvider>
   );
 }
 

@@ -1,29 +1,19 @@
-import React, { useContext, useEffect, useState } from "react";
+import React, { useContext } from "react";
+import CartContext from "../../context/Cart-Context";
 import { Restaurant_img } from "./../../environment";
 import { IconSquareRoundedFilled } from "@tabler/icons-react";
-import "./RestaurantMenu.css";
-import CartContext from "../../context/Cart-Context";
+import "./Cart.css";
 
-function RestaurantMenu({ resMenu }) {
-  console.log("chid", resMenu);
-
+function Cart() {
   const cartCtx = useContext(CartContext);
+  const cartItem = cartCtx.items;
+  console.log(cartCtx.items);
 
-  // resMenu.map((item) => {
-  //   // console.log(item.card.info);
-  // });
-
-  const addToCart = (id) => {
-    cartCtx.items.push(resMenu.find((item) => item.card.info.id === id));
-    console.log(cartCtx.items);
-  };
-  // console.log(resInfo)
-  // console.log(resMenu[1].card.card.itemcards[0].card.info
   return (
-    <>
-      {resMenu?.map((item) => {
+    <div>
+      {cartItem?.map((item) => {
         return (
-          <div className="foodMenu-Wrapper">
+          <div className="foodMenu-Wrapper" key={item.card.info.id}>
             <div>
               {/* show red and green icon according to the vegClassifier */}
               <p className="">
@@ -53,8 +43,8 @@ function RestaurantMenu({ resMenu }) {
           </div>
         );
       })}
-    </>
+    </div>
   );
 }
 
-export default RestaurantMenu;
+export default Cart;

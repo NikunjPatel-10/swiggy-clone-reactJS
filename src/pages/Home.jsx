@@ -4,6 +4,7 @@ import RestaurantList from "../components/RestaurantList/RestaurantList";
 
 function Home() {
   const [allRestaurant, setAllRestaurant] = useState([]);
+
   useEffect(() => {
     getRestaurant();
   }, []);

@@ -1,6 +1,7 @@
 import React from "react";
 import RestaurantCard from "../RestaurantCard/RestaurantCard";
 import "./RestaurantList.css";
+import { Outlet } from "react-router-dom";
 
 /**
  * get data via props from home page
@@ -14,6 +15,7 @@ function RestaurantList({ restaurantList }) {
         {restaurantList.map((item) => {
           return <RestaurantCard key={item.id} cardData={item.data} />;
         })}
+        {/* <Outlet></Outlet> */}
       </div>
     </div>
   );
