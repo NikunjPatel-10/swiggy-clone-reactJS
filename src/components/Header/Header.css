@@ -46,7 +46,7 @@
 }
 
 .nav-item {
-    font-size: 30px;
+    font-size: 19px;
     margin-left: 30px;
     color: gray;
     cursor: pointer;
@@ -55,22 +55,30 @@
     align-items: center;
 }
 
-.nav-item:hover {
-    color: blue;
+.nav-link {
+    margin-left: 5px;
 }
 
-.cart{
+.nav-item:hover {
+    color: orange;
+}
+
+.cart {
     position: relative;
     display: flex;
 }
 
-.cart-item-number{
+.cart-item-number {
     position: absolute;
-    left: 23%;
-    top: -45%;
+    height: 17px;
+    width: 17px;
+    left: 17%;
+    top: -30%;
     background-color: green;
     color: white;
     border-radius: 50%;
-    font-size: 16px;
-    padding: 5px;
+    font-size: 12px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }

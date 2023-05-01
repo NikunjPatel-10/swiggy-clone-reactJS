@@ -1,22 +1,17 @@
-import React, { useContext } from "react";
+import React, { useContext, useEffect, useState } from "react";
 import CartContext from "../../context/Cart-Context";
 import { Restaurant_img } from "./../../environment";
 import { IconSquareRoundedFilled } from "@tabler/icons-react";
 import "./Cart.css";
+import CartItem from "./CartItem";
 
 function Cart() {
   const cartCtx = useContext(CartContext);
   const cartItem = cartCtx.items;
-  console.log(cartCtx.items);
 
-  const removeHandler = (id) => {
-    cartCtx.removeItem(id);
-    console.log('remove', -1);
-  };
-
-  const addHandler = (item) => {
-    cartCtx.addItem(item);
-  };
+  useEffect(() => {
+    console.log(cartItem);
+  }, [cartItem]);
 
   return (
     <div className="cart-detail-wrapper">
@@ -34,28 +29,33 @@ function Cart() {
                   )}
                 </p>
               </div> */}
-              {/* <figure className="foodImgWrapper">
-                <img src={Restaurant_img + item.card.info.imageId} />{" "}
-              </figure> */}
-              <div className="cart-item">
-                <h2>{item.card.info.name}</h2>
-                
-                  <span className="price">₹ {item.card.info.price / 100}</span>
-                  {/* <span className= "amount">x {props.amount}</span> */}
-                
-              </div>
-              <div className="actions">
-                <button onClick={removeHandler.bind(null,item.id)}>−</button>
-                <span className="quantity" >
-                  {cartCtx.updatedItems}
-                </span>
-                <button onClick={addHandler.bind(null,item)}>+</button>
-              </div>
+
+              {/* <div className="cart-item">
+                <h4>{item.card.info.name}</h4>
+
+                <span className="price">₹ {item.card.info.price / 100}</span>
+              </div> */}
+              <CartItem
+                key={item.card.info.id}
+                name={item.card.info.name}
+                price={item.card.info.price / 100}
+                id={item.card.info.id}
+                vegClassifier={item.card.info.itemAttribute.vegClassifier}
+              />
             </div>
           );
         })}
+        <div className="total-amount-wrapper">
+          <h2> TO PAY :</h2>
+          <p className="total-amount">
+            ₹
+            {cartCtx.items.reduce(
+              (sum, item) => (sum += item.card.info.price / 100),
+              0
+            )}
+          </p>
+        </div>
       </div>
-      <div>{cartCtx.totalAmount}</div>
     </div>
   );
 }

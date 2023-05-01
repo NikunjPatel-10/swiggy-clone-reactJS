@@ -5,7 +5,7 @@ import "./RestaurantMenu.css";
 import CartContext from "../../context/Cart-Context";
 
 function RestaurantMenu({ resMenu }) {
-  console.log("chid", resMenu);
+  // console.log("chid", resMenu);
 
   const cartCtx = useContext(CartContext);
 

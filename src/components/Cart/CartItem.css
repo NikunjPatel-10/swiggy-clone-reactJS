@@ -1,0 +1,75 @@
+.foodMenu-Wrapper {
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    /* border-bottom: 1px solid grey; */
+    padding: 15px;
+}
+
+.show-icon {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.cart-item {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.cart-item h4 {
+    margin-bottom: 0px;
+}
+
+.price {
+
+    font-size: 16px;
+    padding: 0px 20px;
+}
+
+.actions {
+    display: flex;
+    flex-direction: column;
+}
+
+@media (min-width: 768px) {
+    .actions {
+        flex-direction: row;
+    }
+}
+
+.actions button {
+    font-weight: bold;
+    color: green;
+    border: none;
+    text-align: center;
+    border-radius: 6px;
+    background-color: transparent;
+    cursor: pointer;
+    padding: 5px;
+    box-shadow: rgba(0, 0, 0, 0.16) 0px 1px 4px;
+}
+
+.quantity {
+    padding: 0px 10px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.actions button:hover,
+.actions button:active {
+    background-color: green;
+    color: white;
+}
+
+.total-amount-wrapper {
+    display: flex;
+    justify-content: space-between;
+    border-top: 1px solid black;
+}
+
+.total-amount {
+    font-size: 19px;
+}

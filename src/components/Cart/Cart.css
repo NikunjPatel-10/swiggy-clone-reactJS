@@ -1,119 +1,117 @@
 .cart-detail-wrapper {
-    width: 100%;
+  width: 100%;
 }
 
-.cart-detail{
-    width: 50%;
-    margin: auto;
+.cart-detail {
+  width: 30%;
+  margin: auto;
 }
 
-.menu {
-    width: 100%;
-}
+/* .foodMenu-Wrapper {
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  padding: 15px;
+} */
 
-.foodMenu-Wrapper {
-    width: 100%;
-    display: flex;
-    justify-content: space-between;
-    /* border-bottom: 1px solid grey; */
-    padding: 15px;
-}
+/* .show-icon {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+} */
 
-.show-icon{
-    display: flex;
-    justify-content: center;
-    align-items: center;
-}
 
-h4 {
-    margin-bottom: 10px;
-}
 
 .food-description {
-    color: grey;
-    opacity: 0.5;
-    font-size: 13px;
+  color: grey;
+  opacity: 0.5;
+  font-size: 13px;
 }
 
 .veg {
-    color: green;
+  color: green;
 }
 
 .nonVeg {
-    color: red;
+  color: red;
 }
 
 .foodItem-wrapper {
-    position: relative;
+  position: relative;
 }
 
 
-.quantity-number{
-    margin: 0px 10px;
+.quantity-number {
+  margin: 0px 10px;
 }
 
 .cart-item {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-  }
-  
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
 
-  
+.cart-item h4 {
+  margin-bottom: 0px;
+}
 
-  
-  .price {
+.price {
 
-    font-weight: bold;
-    font-size: 19px;
-    padding: 0px 20px;
-  }
-  
-  .amount {
-    font-weight: bold;
-    border: 1px solid #ccc;
-    padding: 0.25rem 0.75rem;
-    border-radius: 6px;
-    color: #363636;
-  }
-  
+  font-size: 16px;
+  padding: 0px 20px;
+}
+
+.amount {
+  font-weight: bold;
+  border: 1px solid #ccc;
+  padding: 0.25rem 0.75rem;
+  border-radius: 6px;
+  color: #363636;
+}
+
+.actions {
+  display: flex;
+  flex-direction: column;
+}
+
+.total-amount-wrapper {
+  display: flex;
+  justify-content: space-between;
+  border-top: 1px solid black;
+}
+
+.total-amount {
+  font-size: 19px;
+}
+
+
+/* @media (min-width: 768px) {
   .actions {
-    display: flex;
-    flex-direction: column;
+    flex-direction: row;
   }
-  
-  @media (min-width: 768px) {
-    .actions {
-      flex-direction: row;
-    }
-  }
-  
-  .actions  button {
-    font: inherit;
-    font-weight: bold;
-    font-size: 1.25rem;
-    color:green;
-    border: none;
-    width: 3rem;
-    text-align: center;
-    border-radius: 6px;
-    background-color: transparent;
-    cursor: pointer;
-    margin-left: 1rem;
-    margin: 0.25rem;
-    padding: 5px;
-    box-shadow: rgba(0, 0, 0, 0.16) 0px 1px 4px;
-  }
+}
 
-  .quantity{
-    padding: 0px 10px;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-  }
-  
-   .actions  button:hover,
-  .actions button:active {
-    background-color: green;
-    color: white;
-  }
+.actions button {
+  font-weight: bold;
+  color: green;
+  border: none;
+  text-align: center;
+  border-radius: 6px;
+  background-color: transparent;
+  cursor: pointer;
+  padding: 5px;
+  box-shadow: rgba(0, 0, 0, 0.16) 0px 1px 4px;
+}
+
+.quantity {
+  padding: 0px 10px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.actions button:hover,
+.actions button:active {
+  background-color: green;
+  color: white;
+} */
