@@ -1,3 +1,12 @@
+.cart-detail-wrapper {
+    width: 100%;
+}
+
+.cart-detail{
+    width: 50%;
+    margin: auto;
+}
+
 .menu {
     width: 100%;
 }
@@ -8,6 +17,12 @@
     justify-content: space-between;
     /* border-bottom: 1px solid grey; */
     padding: 15px;
+}
+
+.show-icon{
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
 
 h4 {
@@ -28,32 +43,77 @@ h4 {
     color: red;
 }
 
-.foodImgWrapper {
-    height: 90px;
-    width: 100px;
-    border-radius: 8px;
-    overflow: hidden;
-}
-
-.foodImgWrapper img {
-    height: 100%;
-    width: 100%;
-}
-
 .foodItem-wrapper {
     position: relative;
 }
 
-.btn-add {
-    position: absolute;
-    bottom: -6%;
-    left: 16%;
-    padding: 10px 20px;
-    color: green;
-    font-weight: bold;
-    background-color: white;
-    border: none;
-    border-radius: 6px;
-    box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
-    cursor: pointer;
+
+.quantity-number{
+    margin: 0px 10px;
 }
+
+.cart-item {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+  
+
+  
+
+  
+  .price {
+
+    font-weight: bold;
+    font-size: 19px;
+    padding: 0px 20px;
+  }
+  
+  .amount {
+    font-weight: bold;
+    border: 1px solid #ccc;
+    padding: 0.25rem 0.75rem;
+    border-radius: 6px;
+    color: #363636;
+  }
+  
+  .actions {
+    display: flex;
+    flex-direction: column;
+  }
+  
+  @media (min-width: 768px) {
+    .actions {
+      flex-direction: row;
+    }
+  }
+  
+  .actions  button {
+    font: inherit;
+    font-weight: bold;
+    font-size: 1.25rem;
+    color:green;
+    border: none;
+    width: 3rem;
+    text-align: center;
+    border-radius: 6px;
+    background-color: transparent;
+    cursor: pointer;
+    margin-left: 1rem;
+    margin: 0.25rem;
+    padding: 5px;
+    box-shadow: rgba(0, 0, 0, 0.16) 0px 1px 4px;
+  }
+
+  .quantity{
+    padding: 0px 10px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+  
+   .actions  button:hover,
+  .actions button:active {
+    background-color: green;
+    color: white;
+  }

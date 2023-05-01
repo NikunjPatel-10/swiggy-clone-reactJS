@@ -7,14 +7,14 @@ import CartContext from "../../context/Cart-Context";
 import { Link } from "react-router-dom";
 import Cart from "../Cart/Cart";
 function Header() {
-  const [cartNumber, setCartNumber] = useState();
+  const [cartNumber, setCartNumber] = useState([]);
   const cartCtx = useContext(CartContext);
 
-  const numberOfCartItems = cartCtx.items.length;
-
+  
   useEffect(() => {
+    const numberOfCartItems = cartCtx.items.length;
     setCartNumber(numberOfCartItems);
-  }, [numberOfCartItems]);
+  },[]);
 
   return (
     <>
@@ -29,23 +29,31 @@ function Header() {
           <nav className="navbar">
             <ul className="navbar-nav">
               <li className="nav-item">
-                <Home size={25} strokeWidth={2} color={"black"} />
-                Home
+                <Link>
+                  <Home size={30} strokeWidth={2} color={"grey"}  />
+                  Home
+                </Link>
               </li>
               <li className="nav-item">
-                <Percentage size={25} strokeWidth={2} color={"black"} />
-                Offers
+                <Link>
+                  <Percentage size={30} strokeWidth={2} color={"grey"} />
+                  Offers
+                </Link>
               </li>
               <li className="nav-item">
-                <Help size={25} strokeWidth={2} color={"black"} />
-                Help
+                <Link>
+                  <Help size={30} strokeWidth={2} color={"grey"} />
+                  Help
+                </Link>
               </li>
               <li className="nav-item">
                 <Link to={"/restaurant/cart"}>
-                  <span>
-                    <ShoppingCart size={25} strokeWidth={2} color={"black"} />
-                    {cartNumber}Cart
-                  </span>
+                    <span className="cart">
+                      <ShoppingCart size={30} strokeWidth={2} color={"grey"} />
+                      <span className="cart-item-number">{cartNumber}</span>
+                      Cart
+                    </span>
+                 
                 </Link>
               </li>
             </ul>
