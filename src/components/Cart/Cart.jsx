@@ -1,46 +1,37 @@
 import React, { useContext, useEffect, useState } from "react";
 import CartContext from "../../context/Cart-Context";
-import { Restaurant_img } from "./../../environment";
-import { IconSquareRoundedFilled } from "@tabler/icons-react";
+
 import "./Cart.css";
 import CartItem from "./CartItem";
 
 function Cart() {
+  const [cartItemPrice, setCartItemPrice] = useState();
   const cartCtx = useContext(CartContext);
+
+  // get the selected item from resMenu using context
   const cartItem = cartCtx.items;
 
-  useEffect(() => {
-    console.log(cartItem);
-  }, [cartItem]);
+  /**
+   * get price from the cartItem
+   * @param {*} data
+   */
+  const priceHandler = (data) => {
+    setCartItemPrice(data);
+  };
 
   return (
     <div className="cart-detail-wrapper">
       <div className="cart-detail">
         {cartItem?.map((item) => {
           return (
-            <div className="foodMenu-Wrapper" key={item.card.info.id}>
-              {/* show red and green icon according to the vegClassifier */}
-              {/* <div className="show-icon">
-                <p className="">
-                  {item.card.info.itemAttribute.vegClassifier === "NONVEG" ? (
-                    <IconSquareRoundedFilled size={20} className="nonVeg" />
-                  ) : (
-                    <IconSquareRoundedFilled size={20} className="veg" />
-                  )}
-                </p>
-              </div> */}
-
-              {/* <div className="cart-item">
-                <h4>{item.card.info.name}</h4>
-
-                <span className="price">₹ {item.card.info.price / 100}</span>
-              </div> */}
+            <div>
               <CartItem
                 key={item.card.info.id}
                 name={item.card.info.name}
                 price={item.card.info.price / 100}
                 id={item.card.info.id}
                 vegClassifier={item.card.info.itemAttribute.vegClassifier}
+                onCartPrice={priceHandler}
               />
             </div>
           );
@@ -52,7 +43,8 @@ function Cart() {
             {cartCtx.items.reduce(
               (sum, item) => (sum += item.card.info.price / 100),
               0
-            )}
+            ) +
+              (cartItemPrice | 0)}
           </p>
         </div>
       </div>

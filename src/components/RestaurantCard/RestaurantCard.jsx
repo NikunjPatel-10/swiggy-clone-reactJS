@@ -4,6 +4,7 @@ import { Link } from "react-router-dom";
 import { IconStar } from "@tabler/icons-react";
 import classes from "./RestaurantCard.module.css";
 function RestaurantCard({ cardData }) {
+  // display the color according to ratingType
   let ratingType;
   if (cardData.avgRating >= 4.0) {
     ratingType = "green";

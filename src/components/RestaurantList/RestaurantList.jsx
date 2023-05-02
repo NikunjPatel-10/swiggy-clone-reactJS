@@ -15,7 +15,6 @@ function RestaurantList({ restaurantList }) {
         {restaurantList.map((item) => {
           return <RestaurantCard key={item.id} cardData={item.data} />;
         })}
-        {/* <Outlet></Outlet> */}
       </div>
     </div>
   );

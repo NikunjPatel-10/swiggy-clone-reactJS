@@ -16,27 +16,13 @@ import CartProvider from "./context/CartProvider";
 import Cart from "./components/Cart/Cart";
 
 function App() {
-  // const routes = createBrowserRouter([
-  //   {
-  //     path: "/",
-  //     element: <Home />,
-  //   },
-  //   {
-  //     path: "/restaurant/cart",
-  //     element: <Cart />,
-  //   },
-  //   {
-  //     path: "/restaurant/:resId",
-  //     element: <RestaurantDetails />,
-  //   },
-  // ]);
-
   return (
     <CartProvider>
       <div>
         <Header />
         <Routes>
           <Route path="/" element={<Home />} />
+          <Route path="/home" element={<Home />} />
           <Route path="/restaurant/cart" element={<Cart />} />
           <Route path="/restaurant/:resId" element={<RestaurantDetails />} />
         </Routes>

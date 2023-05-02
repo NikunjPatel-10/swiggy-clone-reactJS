@@ -20,10 +20,7 @@ function RestaurantDetails() {
   const getRestaurantDetail = async () => {
     const ResDetail = await fetch(Fetch_Restaurant_Details + resId);
     const ResDetailData = await ResDetail.json();
-    // console.log(ResDetailData);
-    // console.log(
-    //   ResDetailData.data.cards[2].groupedCard.cardGroupMap.REGULAR.cards
-    // );
+
     setResInfoData(ResDetailData.data.cards[0].card.card.info);
     setResMenu(
       ResDetailData.data.cards[2].groupedCard.cardGroupMap.REGULAR.cards[1].card
@@ -34,12 +31,10 @@ function RestaurantDetails() {
   };
   return (
     <div className="resDetails-Wrapper">
-      {/* <div className="res"> */}
       <div className="resDetail">
         <RestaurantInfo restaurantInfo={resInfoData} />
         <RestaurantMenu resMenu={resMenu} />
       </div>
-      {/* </div> */}
     </div>
   );
 }

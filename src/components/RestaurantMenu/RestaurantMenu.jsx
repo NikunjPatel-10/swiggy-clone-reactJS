@@ -9,16 +9,11 @@ function RestaurantMenu({ resMenu }) {
 
   const cartCtx = useContext(CartContext);
 
-  // resMenu.map((item) => {
-  //   // console.log(item.card.info);
-  // });
-
   const addToCart = (id) => {
     cartCtx.items.push(resMenu.find((item) => item.card.info.id === id));
     console.log(cartCtx.items);
   };
-  // console.log(resInfo)
-  // console.log(resMenu[1].card.card.itemcards[0].card.info
+
   return (
     <>
       {resMenu?.map((item) => {

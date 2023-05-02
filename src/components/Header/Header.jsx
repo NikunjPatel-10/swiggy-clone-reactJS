@@ -9,10 +9,10 @@ function Header() {
   const [cartNumber, setCartNumber] = useState([]);
   const cartCtx = useContext(CartContext);
 
+  let numberOfCartItems = cartCtx.items.length;
   useEffect(() => {
-    const numberOfCartItems = cartCtx.items.length;
     setCartNumber(numberOfCartItems);
-  }, [cartCtx]);
+  }, [numberOfCartItems]);
 
   return (
     <>
@@ -26,10 +26,12 @@ function Header() {
 
           <nav className="navbar">
             <ul className="navbar-nav">
-              <li className="nav-item">
-                <Home size={22} />
-                <span className="nav-link"> Home</span>
-              </li>
+              <Link to={"/home"}>
+                <li className="nav-item">
+                  <Home size={22} />
+                  <span className="nav-link"> Home</span>
+                </li>
+              </Link>
               <li className="nav-item">
                 <Percentage size={22} />
                 <span className="nav-link"> Offers</span>
