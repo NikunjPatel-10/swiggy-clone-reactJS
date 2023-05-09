@@ -9,11 +9,14 @@ function Header() {
   const [cartNumber, setCartNumber] = useState([]);
   const cartCtx = useContext(CartContext);
 
-  let numberOfCartItems = cartCtx.items.length;
   useEffect(() => {
-    setCartNumber(numberOfCartItems);
-  }, [numberOfCartItems]);
+    cartItem();
+  }, []);
 
+  let numberOfCartItems = cartCtx.items.length;
+  const cartItem = () => {
+    setCartNumber(numberOfCartItems);
+  };
   return (
     <>
       <header className="header">

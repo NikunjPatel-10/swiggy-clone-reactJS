@@ -9,17 +9,18 @@ function CartItem({ name, price, vegClassifier, onCartPrice }) {
     Price: price,
   });
 
+  let itemPrice = 0;
   /**
    * display the price and counter in cart
    */
   const removeHandler = () => {
     console.log("remove");
-    debugger;
     // if (cartCtx.items.find((item) => item.card.info.id === id)) {
     setState({
       counter: state.counter - 1,
       Price: state.counter > 1 ? state.Price - price : price,
     });
+
     onCartPrice(state.Price);
 
     // const data = cartCtx.items.findIndex((item) => item.card.info);
@@ -37,6 +38,7 @@ function CartItem({ name, price, vegClassifier, onCartPrice }) {
       counter: state.counter + 1,
       Price: price * state.counter,
     });
+
     onCartPrice(state.Price);
     // }
   };

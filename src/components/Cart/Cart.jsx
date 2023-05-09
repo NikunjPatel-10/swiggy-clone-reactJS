@@ -10,6 +10,7 @@ function Cart() {
 
   // get the selected item from resMenu using context
   const cartItem = cartCtx.items;
+  console.log(cartCtx.totalAmount);
 
   /**
    * get price from the cartItem
@@ -17,6 +18,7 @@ function Cart() {
    */
   const priceHandler = (data) => {
     setCartItemPrice(data);
+    console.log(data);
   };
 
   return (
