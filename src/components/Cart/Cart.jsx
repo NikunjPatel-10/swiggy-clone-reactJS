@@ -10,6 +10,16 @@ function Cart() {
 
   // get the selected item from resMenu using context
   const cartItem = cartCtx.items;
+  let amount =` $${cartCtx.totalAmount.toFixed(2)}`
+  console.log(amount);
+
+  // const cartItemAddHandler = (item)=>{
+  //   cartCtx.addItem(item)
+  // }
+
+  // const cartItemRemoveHandler = (id)=>{
+  //   cartCtx.removeItem(id)
+  // }
 
   /**
    * get price from the cartItem
@@ -32,6 +42,8 @@ function Cart() {
                 id={item.card.info.id}
                 vegClassifier={item.card.info.itemAttribute.vegClassifier}
                 onCartPrice={priceHandler}
+                // onAdd={()=>{cartItemAddHandler(item)}}
+                // onRemove={()=>{cartItemRemoveHandler(item.card.info.id)}}
               />
             </div>
           );

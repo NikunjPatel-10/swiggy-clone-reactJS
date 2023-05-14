@@ -3,18 +3,19 @@ import React, { useState, useContext } from "react";
 import CartContext from "../../context/Cart-Context";
 import { IconSquareRoundedFilled } from "@tabler/icons-react";
 
-function CartItem({ name, price, vegClassifier, onCartPrice }) {
+function CartItem({ name, price, vegClassifier, onCartPrice,onAdd, onRemove  }) {
   const [state, setState] = useState({
     counter: 1,
     Price: price,
   });
 
+
+ 
   /**
    * display the price and counter in cart
    */
   const removeHandler = () => {
     console.log("remove");
-    debugger;
     // if (cartCtx.items.find((item) => item.card.info.id === id)) {
     setState({
       counter: state.counter - 1,
@@ -30,7 +31,7 @@ function CartItem({ name, price, vegClassifier, onCartPrice }) {
     // }
   };
 
-  const addHandler = () => {
+  const addHandler = (item) => {
     console.log("add");
 
     setState({
@@ -59,17 +60,13 @@ function CartItem({ name, price, vegClassifier, onCartPrice }) {
         </div>
         <div className="actions">
           <button
-            onClick={() => {
-              removeHandler();
-            }}
+            onClick={removeHandler}
           >
             −
           </button>
           <span className="quantity">{state.counter}</span>
           <button
-            onClick={() => {
-              addHandler();
-            }}
+            onClick={addHandler}
           >
             +
           </button>
