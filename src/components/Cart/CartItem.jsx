@@ -3,44 +3,45 @@ import React, { useState, useContext } from "react";
 import CartContext from "../../context/Cart-Context";
 import { IconSquareRoundedFilled } from "@tabler/icons-react";
 
-function CartItem({ name, price, vegClassifier, onCartPrice }) {
+function CartItem({ name, price, vegClassifier, onCartPrice, id, quantity }) {
   const [state, setState] = useState({
     counter: 1,
     Price: price,
   });
 
-  let itemPrice = 0;
+  // let itemPrice = 0;
+  const cartCtx = useContext(CartContext);
+  const item = cartCtx.items.map((data) => data.card.info.id);
   /**
    * display the price and counter in cart
    */
   const removeHandler = () => {
     console.log("remove");
     // if (cartCtx.items.find((item) => item.card.info.id === id)) {
-    setState({
-      counter: state.counter - 1,
-      Price: state.counter > 1 ? state.Price - price : price,
+    setState((prevState) => {
+      const updatedCounter = prevState.counter - 1;
+      const updatedPrice = updatedCounter > 0 ? prevState.Price - price : price;
+
+      return {
+        counter: updatedCounter,
+        Price: updatedPrice,
+      };
     });
-
     onCartPrice(state.Price);
-
-    // const data = cartCtx.items.findIndex((item) => item.card.info);
-    // if (state.counter <= 2) {
-    //   cartCtx.items.splice(data, 1);
-    // }
-
-    // }
   };
 
+  // const [cart, setCart] = useState([]);
   const addHandler = () => {
-    console.log("add");
+    setState((prevState) => {
+      const updatedCounter = prevState.counter + 1;
+      const updatedPrice = price * updatedCounter;
 
-    setState({
-      counter: state.counter + 1,
-      Price: price * state.counter,
+      return {
+        counter: updatedCounter,
+        Price: updatedPrice,
+      };
     });
-
     onCartPrice(state.Price);
-    // }
   };
   return (
     <>
@@ -60,21 +61,9 @@ function CartItem({ name, price, vegClassifier, onCartPrice }) {
           <span className="price">₹ {state.Price}</span>
         </div>
         <div className="actions">
-          <button
-            onClick={() => {
-              removeHandler();
-            }}
-          >
-            −
-          </button>
+          <button onClick={removeHandler}>−</button>
           <span className="quantity">{state.counter}</span>
-          <button
-            onClick={() => {
-              addHandler();
-            }}
-          >
-            +
-          </button>
+          <button onClick={addHandler}>+</button>
         </div>
       </div>
     </>

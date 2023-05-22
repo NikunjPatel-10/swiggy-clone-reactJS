@@ -16,9 +16,12 @@ function Cart() {
    * get price from the cartItem
    * @param {*} data
    */
+  const cartItems = [];
   const priceHandler = (data) => {
-    setCartItemPrice(data);
     console.log(data);
+    // setCartItemPrice(data);
+    setCartItemPrice(cartItems.push(data));
+    console.log(cartItemPrice);
   };
 
   return (
@@ -42,11 +45,10 @@ function Cart() {
           <h2> TO PAY :</h2>
           <p className="total-amount">
             ₹
-            {cartCtx.items.reduce(
+            {cartItemPrice.reduce(
               (sum, item) => (sum += item.card.info.price / 100),
               0
-            ) +
-              (cartItemPrice | 0)}
+            )}
           </p>
         </div>
       </div>
