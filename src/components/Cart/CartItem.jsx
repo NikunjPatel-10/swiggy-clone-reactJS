@@ -3,15 +3,12 @@ import React, { useState, useContext } from "react";
 import CartContext from "../../context/Cart-Context";
 import { IconSquareRoundedFilled } from "@tabler/icons-react";
 
-function CartItem({ name, price, vegClassifier, onCartPrice, id, quantity }) {
+function CartItem({ name, price, vegClassifier, onCartPrice }) {
   const [state, setState] = useState({
     counter: 1,
     Price: price,
   });
 
-  // let itemPrice = 0;
-  const cartCtx = useContext(CartContext);
-  const item = cartCtx.items.map((data) => data.card.info.id);
   /**
    * display the price and counter in cart
    */
@@ -30,11 +27,8 @@ function CartItem({ name, price, vegClassifier, onCartPrice, id, quantity }) {
     onCartPrice(state.Price);
   };
 
-  // const [cart, setCart] = useState([]);
   const addHandler = () => {
-    setState((prevState) => {
-      const updatedCounter = prevState.counter + 1;
-      const updatedPrice = price * updatedCounter;
+    console.log("add");
 
       return {
         counter: updatedCounter,
@@ -61,9 +55,21 @@ function CartItem({ name, price, vegClassifier, onCartPrice, id, quantity }) {
           <span className="price">₹ {state.Price}</span>
         </div>
         <div className="actions">
-          <button onClick={removeHandler}>−</button>
+          <button
+            onClick={() => {
+              removeHandler();
+            }}
+          >
+            −
+          </button>
           <span className="quantity">{state.counter}</span>
-          <button onClick={addHandler}>+</button>
+          <button
+            onClick={() => {
+              addHandler();
+            }}
+          >
+            +
+          </button>
         </div>
       </div>
     </>
