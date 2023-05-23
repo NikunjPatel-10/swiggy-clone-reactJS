@@ -5,62 +5,45 @@ import "./Cart.css";
 import CartItem from "./CartItem";
 
 function Cart() {
-  const [cartItemPrice, setCartItemPrice] = useState();
+  const [cartItemPrice, setCartItemPrice] = useState([]); // Provide an initial value for cartItemPrice
   const cartCtx = useContext(CartContext);
 
-  // get the selected item from resMenu using context
-  const cartItem = cartCtx.items;
-  console.log(cartCtx.totalAmount);
-  let amount = ` $${cartCtx.totalAmount.toFixed(2)}`;
-  console.log(amount);
-
-  // const cartItemAddHandler = (item)=>{
-  //   cartCtx.addItem(item)
-  // }
-
-  // const cartItemRemoveHandler = (id)=>{
-  //   cartCtx.removeItem(id)
-  // }
+  // get the selected items from cartCtx using context
+  const cartItems = cartCtx.items;
 
   /**
    * get price from the cartItem
    * @param {*} data
    */
-  const cartItems = [];
   const priceHandler = (data) => {
-    console.log(data);
-    // setCartItemPrice(data);
-    setCartItemPrice(cartItems.push(data));
-    console.log(cartItemPrice);
+    console.log(data.Price);
+    setCartItemPrice(data.Price);
+    // console.log(car);
   };
 
   return (
     <div className="cart-detail-wrapper">
       <div className="cart-detail">
-        {cartItem?.map((item) => {
-          return (
-            <div>
-              <CartItem
-                key={item.card.info.id}
-                name={item.card.info.name}
-                price={item.card.info.price / 100}
-                id={item.card.info.id}
-                vegClassifier={item.card.info.itemAttribute.vegClassifier}
-                onCartPrice={priceHandler}
-                // onAdd={()=>{cartItemAddHandler(item)}}
-                // onRemove={()=>{cartItemRemoveHandler(item.card.info.id)}}
-              />
-            </div>
-          );
-        })}
+        {cartItems?.map((item) => (
+          <div key={item.card.info.id}>
+            <CartItem
+              name={item.card.info.name}
+              price={item.card.info.price / 100}
+              id={item.card.info.id}
+              vegClassifier={item.card.info.itemAttribute.vegClassifier}
+              onCartPrice={priceHandler}
+            />
+          </div>
+        ))}
         <div className="total-amount-wrapper">
-          <h2> TO PAY :</h2>
+          <h2>TO PAY:</h2>
           <p className="total-amount">
             ₹
-            {cartItemPrice.reduce(
-              (sum, item) => (sum += item.card.info.price / 100),
+            {cartItems.reduce(
+              (total, item) => total + item.card.info.price / 100,
               0
-            )}
+            ) +
+              (cartItemPrice | 0)}
           </p>
         </div>
       </div>

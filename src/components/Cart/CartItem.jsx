@@ -14,29 +14,31 @@ function CartItem({ name, price, vegClassifier, onCartPrice }) {
    */
   const removeHandler = () => {
     console.log("remove");
-    // if (cartCtx.items.find((item) => item.card.info.id === id)) {
     setState((prevState) => {
       const updatedCounter = prevState.counter - 1;
       const updatedPrice = updatedCounter > 0 ? prevState.Price - price : price;
-
       return {
         counter: updatedCounter,
         Price: updatedPrice,
       };
     });
-    onCartPrice(state.Price);
+    onCartPrice(state);
   };
 
   const addHandler = () => {
     console.log("add");
 
+    setState((prevState) => {
+      const updatedCounter = prevState.counter + 1;
+      const updatedPrice = price * updatedCounter;
       return {
         counter: updatedCounter,
         Price: updatedPrice,
       };
     });
-    onCartPrice(state.Price);
+    onCartPrice(state);
   };
+
   return (
     <>
       <div className="foodMenu-Wrapper">
@@ -75,5 +77,4 @@ function CartItem({ name, price, vegClassifier, onCartPrice }) {
     </>
   );
 }
-
 export default CartItem;
